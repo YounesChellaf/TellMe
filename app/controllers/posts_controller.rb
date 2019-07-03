@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
     def index
-
+        @posts = Post.all 
     end 
 
     def show
@@ -16,11 +16,13 @@ class PostsController < ApplicationController
         @post = Post.new(post_params)
         @post.save
         redirect_to @post
-    end 
-
-    private def post_params 
-        params.require(:post).permit(:title, :body)
-    end 
+      end
+  
+      private
+      def post_params
+          params.require(:post).permit(:title, :body)
+      end
+  
 
 
 
